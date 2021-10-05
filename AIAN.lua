@@ -1095,7 +1095,7 @@ UserName = "]]..data.username_..[["
 ]])
 A:close()
 database:del(bot_id.."Ed:DevBots")
-dofile('WAAD.lua')  
+dofile('AIAN.lua')  
 else
 send(msg.chat_id_,msg.id_, "*✺│عذرا صاحب الايدي لا يمتلك معرف ارسل ايدي اخر*")
 end
@@ -1110,10 +1110,10 @@ if text =='تغيير المطور الاساسي ⌔' and not SudoBot(msg) then
 send(msg.chat_id_, msg.id_,'*✺│لا يمكنك تغيير المطور الاساسي*')
 end
 if text == 'تحديث السورس ⌔' and DevWAADW(msg) then 
-os.execute('rm -rf WAAD.lua')
-os.execute('wget https://raw.githubusercontent.com/TEAM-WAAD/AIAN/main/WAAD.lua')
+os.execute('rm -rf AIAN.lua')
+os.execute('wget https://raw.githubusercontent.com/TEAM-WAAD/AIAN/main/AIAN.lua')
 send(msg.chat_id_, msg.id_,' *✺│تم تحديث السورس* \n*✺│لديك اخر اصدار لسورس وعد*\n*✺│الاصدار » { 1.0v}*')
-dofile('WAAD.lua')  
+dofile('AIAN.lua')  
 end
 if text == 'الاصدار ⌔' and DevWAADW(msg) then 
 database:del(bot_id..'Srt:Bot') 
@@ -2416,10 +2416,10 @@ send(msg.chat_id_, msg.id_,'  *✺│عذࢪا عليڪ الاشتࢪاڪ في �
 end
 return false
 end
-os.execute('rm -rf WAAD.lua')
-os.execute('wget https://raw.githubusercontent.com/TEAM-WAAD/AIAN/main/WAAD.lua')
+os.execute('rm -rf AIAN.lua')
+os.execute('wget https://raw.githubusercontent.com/TEAM-WAAD/AIAN/main/AIAN.lua')
 send(msg.chat_id_, msg.id_,' *✺│تم تحديث السورس* \n*✺│لديك اخر اصدار لسورس وعد*\n*✺│الاصدار » { 1.0v}*')
-dofile('WAAD.lua')  
+dofile('AIAN.lua')  
 end
 
 if text and text:match("^تغير الاشتراك$") and DevWAADW(msg) then  
@@ -3656,7 +3656,7 @@ send(msg.chat_id_, msg.id_,' *✺│تم فتح التكرار*')
 end
 ------------------------------------------------------------------------ زلــزال الهيــبـه
 if text == 'تحديث' and DevWAADW(msg) then
-dofile('WAAD.lua')  
+dofile('AIAN.lua')  
 send(msg.chat_id_, msg.id_, ' *✺│تم تحديث جميع الملفات*') 
 end 
 if text == ("مسح قائمه العام") and DevWAADW(msg) then
@@ -4060,7 +4060,7 @@ local json_file, res = https.request("https://raw.githubusercontent.com/TEAM-WAA
 if res == 200 then
 os.execute("rm -fr File_Bot/"..file)
 send(msg.chat_id_, msg.id_,t) 
-dofile('WAAD.lua')  
+dofile('AIAN.lua')  
 else
 send(msg.chat_id_, msg.id_," *✺│عذرا الملف لايدعم سورس وعد* \n") 
 end
@@ -4082,7 +4082,7 @@ local chek = io.open("File_Bot/"..file,'w+')
 chek:write(json_file)
 chek:close()
 send(msg.chat_id_, msg.id_,t) 
-dofile('WAAD.lua')  
+dofile('AIAN.lua')  
 else
 send(msg.chat_id_, msg.id_," *✺│عذرا الملف لايدعم سورس وعد* \n") 
 end
