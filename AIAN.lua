@@ -8077,7 +8077,7 @@ end
 if text and (text == 'المطور' or text == 'مطور' or text == '↫  المطور ᥀') then
 tdcli_function({ID="GetUser",user_id_=SUDO},function(arg,result)
 local msg_id = msg.id_/2097152/0.5
-local getbio1 = ..getbio(SUDO)..
+local getbio1 = getbio(SUDO)
 Text = "*᥀︙Dev Name ↬ * ["..result.first_name_.."](tg://user?id="..result.id_..")\n*᥀︙Dev User ↬* [@"..result.username_.."] \n*᥀︙Dev bio ↬* ["..getbio1.."]"
 keyboard = {} 
 keyboard.inline_keyboard = {{{text = ''..result.first_name_..' ',url="t.me/"..result.username_ or nnnnbn}}}
