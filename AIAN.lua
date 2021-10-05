@@ -8111,11 +8111,9 @@ return false end
 end
 if text == "الرابط" then 
 local link = database:get(bot_id.."Private:Group:Link"..msg.chat_id_)
-if link then  
 local msg_id = msg.id_/2097152/0.5
 Text = "𝒍𝒊𝒏𝒌 𝒈𝒓𝒐𝒖𝒑  𖠐\n*◐•━━━━━━ 𝗪𝗔 ━━━━━━━•◐*\n ["..link.."]"
-https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/EREFADSAS&caption=' .. URL.escape(Text).."&parse_mode=markdown&disable_web_page_preview=true")
-end
+https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/T_TIMO&caption=' .. URL.escape(Text).."&parse_mode=markdown&disable_web_page_preview=true")
 end
 if text == 'مسح الرابط' or text == 'حذف الرابط' then
 if Mod(msg) then 
