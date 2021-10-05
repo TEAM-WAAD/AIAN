@@ -8075,17 +8075,16 @@ send(msg.chat_id_, msg.id_," *✺│تم تعطيل الرابط*")
 return false end
 end
 
-if text == 'المطور' or text == 'مطور' then
-local TEXT_SUDO = database:get(bot_id..'TEXT_SUDO')
-if TEXT_SUDO then 
-send(msg.chat_id_, msg.id_,TEXT_SUDO)
-else
-tdcli_function ({ID = "GetUser",user_id_ = SUDO},function(arg,result) 
-local Name = '['..result.first_name_..'](tg://user?id='..result.id_..')'
-sendText(msg.chat_id_,Name,msg.id_/2097152/0.5,'md')
+if text and (text == 'المطور' or text == 'مطور' or text == '↫  المطور ᥀') then
+tdcli_function({ID="GetUser",user_id_=SUDO},function(arg,result)
+local msg_id = msg.id_/2097152/0.5
+Text = "*᥀︙Dev Name ↬ * ["..result.first_name_.."](T.me/"..result.username_..")\n*᥀︙Dev User ↬* [@"..result.username_.."]"
+keyboard = {} 
+keyboard.inline_keyboard = {{{text = ''..result.first_name_..' ',url="t.me/"..result.username_ or JaCaC}}}
+https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' ..msg.chat_id_ .. '&photo=https://t.me/'..result.username_..'&caption=' .. URL.escape(Text).."&reply_to_message_id=".msg.id_.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end,nil)
 end
-end
+
 ------------------------------------------------------------------------ زلــزال الهيــبـه
 
 if text == "تفعيل صورتي" or text == 'تفعيل الصوره' then
