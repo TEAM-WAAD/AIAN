@@ -8113,6 +8113,7 @@ if text == "الرابط" then
 local link = database:get(bot_id.."Private:Group:Link"..msg.chat_id_)
 if link then  
 local IdChat = msg.chat_id_
+local msg_id = msg.id_/2097152/0.5
 Text = "𝒍𝒊𝒏𝒌 𝒈𝒓𝒐𝒖𝒑  𖠐\n*◐•━━━━━━ 𝗪𝗔 ━━━━━━━•◐*\n ["..link.."]"
 local photogp = usergp(IdChat)
 https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/'..photogp..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true")
