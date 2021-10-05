@@ -8066,16 +8066,6 @@ keyboard.inline_keyboard = {{{text = ''..result.first_name_..' ',url="t.me/"..re
 https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/'..result.username_..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end,nil)
 end
-if text and (text == 'المنشئ' or text == 'منشئ') then
-tdcli_function({ID="GetUser",user_id_=SUDO},function(arg,result)
-local msg_id = msg.id_/2097152/0.5
-local getbio1 = getbio(SUDO)
-Text = "*᥀︙Dev Name ↬ * ["..result.first_name_.."](tg://user?id="..result.id_..")\n*᥀︙Dev User ↬* [@"..result.username_.."] \n*᥀︙Dev bio ↬* ["..getbio1.."]"
-keyboard = {} 
-keyboard.inline_keyboard = {{{text = ''..result.first_name_..' ',url="t.me/"..result.username_ or nnnnbn}}}
-https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/'..result.username_..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-end,nil)
-end
 if text ==("المنشئ") then
 tdcli_function ({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub("-100",""),filter_ = {ID = "ChannelMembersAdministrators"},offset_ = 0,limit_ = 100},function(arg,data) 
 local admins = data.members_
