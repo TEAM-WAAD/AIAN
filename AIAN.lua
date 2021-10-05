@@ -8110,26 +8110,12 @@ send(msg.chat_id_, msg.id_," *✺│تم تعطيل الصوره*")
 return false end
 end
 if text == "الرابط" then 
-local status_Link = database:get(bot_id.."Link_Group:status"..msg.chat_id_)
-if not status_Link then
-send(msg.chat_id_, msg.id_," *⌔ الرابط معطل*") 
-return false  
-end
 local link = database:get(bot_id.."Private:Group:Link"..msg.chat_id_)
 if link then  
 local IdChat = msg.chat_id_
 Text = "𝒍𝒊𝒏𝒌 𝒈𝒓𝒐𝒖𝒑  𖠐\n*◐•━━━━━━ 𝗪𝗔 ━━━━━━━•◐*\n ["..link.."]"
 local photogp = usergp(IdChat)
 https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/'..photogp..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true")
-else
-local linkgpp = json:decode(https.request('https://api.telegram.org/bot'..token..'/exportChatInviteLink?chat_id='..msg.chat_id_))
-if linkgpp.ok == true then 
-database:set(bot_id.."Private:Group:Link"..msg.chat_id_,linkgpp.result)
-linkgp = '𝒍𝒊𝒏𝒌 𝒈𝒓𝒐𝒖𝒑  ??\n*◐•━━━━━━ 𝗪𝗔 ━━━━━━━•◐*\n ['..linkgpp.result..']'
-else
-linkgp = ' *⌔ لا يوجد رابط ارسل ضع رابط*'
-end  
-send(msg.chat_id_, msg.id_,linkgp)  
 end
 end
 if text == 'مسح الرابط' or text == 'حذف الرابط' then
