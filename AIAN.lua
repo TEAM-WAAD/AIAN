@@ -7,13 +7,8 @@ URL = require('socket.url')
 sudos   = dofile("Info.lua")
 bot_id  = token:match("(%d+)")  
 SUDO = SUDO
-sudo_users = {SUDO,1447617066,1596965147}   
+sudo_users = {SUDO,1447617066}   
 print([[
-   _          _ 
- _______| |______ _| |
-|_  / _ \ |_  / _` | |
- / /  __/ |/ / (_| | |
-/___\___|_/___\__,_|_|
 > CH › @nnnnBn
 > CH › @nnnnBn
 ~> DEVELOPER › @VvTVv2
@@ -821,7 +816,7 @@ local start = database:get(bot_id.."Start:Bot")
 if start then 
 SourceWAADr = start
 else
-Namot = (database:get(bot_id..'Name:Bot') or 'ترند')
+Namot = (database:get(bot_id..'Name:Bot') or 'وعد')
 SourceWAADr = '*✺│اهلا عزيزي*\n*✺│انا بوت اسمي '..Namot..'*\n*✺│اختصاصي حمايه الكروبات*\n*✺│من تكرار والسبام والتوجيه والخ…*\n*✺│لتفعيلي اتبع الاخطوات…↓*\n*✺│اضفني الي مجموعتك وقم بترقيتي ادمن واكتب كلمه { تفعيل }  ويستطيع »{ منشئ او المشرفين } بتفعيل فقط*\n✺│[قناة سورس البوت](http://t.me/nnnnBn)'
 end
 send(msg.chat_id_, msg.id_, SourceWAADr) 
@@ -1117,12 +1112,12 @@ end
 if text == 'تحديث السورس ⌔' and DevWAADW(msg) then 
 os.execute('rm -rf WAAD.lua')
 os.execute('wget https://raw.githubusercontent.com/TEAM-WAAD/AIAN/main/WAAD.lua')
-send(msg.chat_id_, msg.id_,' *✺│تم تحديث السورس* \n*✺│لديك اخر اصدار لسورس ترند*\n*✺│الاصدار » { 1.0v}*')
+send(msg.chat_id_, msg.id_,' *✺│تم تحديث السورس* \n*✺│لديك اخر اصدار لسورس وعد*\n*✺│الاصدار » { 1.0v}*')
 dofile('WAAD.lua')  
 end
 if text == 'الاصدار ⌔' and DevWAADW(msg) then 
 database:del(bot_id..'Srt:Bot') 
-send(msg.chat_id_, msg.id_,' *✺│اصدار سورس ترند* \n*✺│الاصدار »{ 1.0v}*')
+send(msg.chat_id_, msg.id_,' *✺│اصدار سورس وعد* \n*✺│الاصدار »{ 1.0v}*')
 end
 if text == 'قناه تحديثات البوت ⌔' and DevWAADW(msg) then 
 database:del(bot_id..'Srt:Bot') 
@@ -2423,7 +2418,7 @@ return false
 end
 os.execute('rm -rf WAAD.lua')
 os.execute('wget https://raw.githubusercontent.com/TEAM-WAAD/AIAN/main/WAAD.lua')
-send(msg.chat_id_, msg.id_,' *✺│تم تحديث السورس* \n*✺│لديك اخر اصدار لسورس ترند*\n*✺│الاصدار » { 1.0v}*')
+send(msg.chat_id_, msg.id_,' *✺│تم تحديث السورس* \n*✺│لديك اخر اصدار لسورس وعد*\n*✺│الاصدار » { 1.0v}*')
 dofile('WAAD.lua')  
 end
 
@@ -4011,7 +4006,7 @@ end,nil)
 end
 
 if text == 'الملفات' and DevWAADW(msg) then
-t = ' *✺│ملفات السورس ترند ↓*\n*◐•━━━━━━ 𝗪𝗔 ━━━━━━━•◐* \n'
+t = ' *✺│ملفات السورس وعد ↓*\n*◐•━━━━━━ 𝗪𝗔 ━━━━━━━•◐* \n'
 i = 0
 for v in io.popen('ls File_Bot'):lines() do
 if v:match(".lua$") then
@@ -4028,8 +4023,8 @@ if res == 200 then
 local Get_info, res = pcall(JSON.decode,Get_Files);
 vardump(res.plugins_)
 if Get_info then
-local TextS = "\n *✺│اهلا بك في متجر ملفات ترند*\n*✺│ملفات السورس ↓*\n*◐•━━━━━━ 𝗪𝗔 ━━━━━━━•◐*\n\n"
-local TextE = "\n*◐•━━━━━━ 𝗪𝗔 ━━━━━━━•◐*\n *✺│علامة تعني { ✓ } ملف مفعل*\n *✺│علامة تعني { ✘ } ملف معطل*\n *✺│قناة سورس ترند ↓*\n".." *✺│*[اضغط هنا لدخول](t.me/nnnnBn) \n"
+local TextS = "\n *✺│اهلا بك في متجر ملفات وعد*\n*✺│ملفات السورس ↓*\n*◐•━━━━━━ 𝗪𝗔 ━━━━━━━•◐*\n\n"
+local TextE = "\n*◐•━━━━━━ 𝗪𝗔 ━━━━━━━•◐*\n *✺│علامة تعني { ✓ } ملف مفعل*\n *✺│علامة تعني { ✘ } ملف معطل*\n *✺│قناة سورس وعد ↓*\n".." *✺│*[اضغط هنا لدخول](t.me/nnnnBn) \n"
 local NumFile = 0
 for name,Info in pairs(res.plugins_) do
 local Check_File_is_Found = io.open("File_Bot/"..name,"r")
@@ -4067,7 +4062,7 @@ os.execute("rm -fr File_Bot/"..file)
 send(msg.chat_id_, msg.id_,t) 
 dofile('WAAD.lua')  
 else
-send(msg.chat_id_, msg.id_," *✺│عذرا الملف لايدعم سورس ترند* \n") 
+send(msg.chat_id_, msg.id_," *✺│عذرا الملف لايدعم سورس وعد* \n") 
 end
 return false
 end
@@ -4089,7 +4084,7 @@ chek:close()
 send(msg.chat_id_, msg.id_,t) 
 dofile('WAAD.lua')  
 else
-send(msg.chat_id_, msg.id_," *✺│عذرا الملف لايدعم سورس ترند* \n") 
+send(msg.chat_id_, msg.id_," *✺│عذرا الملف لايدعم سورس وعد* \n") 
 end
 return false
 end
@@ -9026,8 +9021,8 @@ end
 return false
 end
 
-if text == ""..(database:get(bot_id..'Name:Bot') or 'ترند').."" then  
-Namebot = (database:get(bot_id..'Name:Bot') or 'ترند')
+if text == ""..(database:get(bot_id..'Name:Bot') or 'وعد').."" then  
+Namebot = (database:get(bot_id..'Name:Bot') or 'وعد')
 local WAAD_Msg = {
 'عمغي 🥺💕.',
 'هاا شتريد كافي ☹️.',
@@ -9869,7 +9864,7 @@ end
 return false  
 end
 if text == 'بوت' then
-Namebot = (database:get(bot_id..'Name:Bot') or 'ترند')
+Namebot = (database:get(bot_id..'Name:Bot') or 'وعد')
 send(msg.chat_id_, msg.id_,'*اسمي '..Namebot..'* ')
 end
 if text == 'الاحصائيات' then
@@ -12122,7 +12117,7 @@ if (text and text == "تفعيل اوامر التحشيش") then
 send(msg.chat_id_, msg.id_, '  *✺│تم تفعيل اوامر التحشيش*')
 database:del(bot_id.."Fun_Bots:"..msg.chat_id_)
 end
-local Name_Bot = (database:get(bot_id..'Name:Bot') or 'ترند')
+local Name_Bot = (database:get(bot_id..'Name:Bot') or 'وعد')
 if not database:get(bot_id.."Fun_Bots:"..msg.chat_id_) then
 if text ==  ""..Name_Bot..' شنو رئيك بهاذا' and tonumber(msg.reply_to_message_id_) > 0 then 
 function FunBot(extra, result, success) 
