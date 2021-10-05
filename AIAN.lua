@@ -10672,11 +10672,8 @@ return false
 end
 
 if text and text:match("^(gpinfo)$") or text and text:match("^معلومات الكروب$") then
-function gpinfo(arg,data)
 -- vardump(data) 
-WAADdx(msg.chat_id_, msg.id_, ' *✺│ايدي المجموعة » ( '..msg.chat_id_..' )*\n*✺│عدد الادمنيه » ( '..data.administrator_count_..' )*\n*✺│عدد المحظورين » ( '..data.kicked_count_..' )*\n*✺│عدد الاعضاء » ( '..data.member_count_..' )*\n', 'md') 
-end 
-getChannelFull(msg.chat_id_, gpinfo, nil) 
+send(msg.chat_id_, msg.id_, ' *✺│ايدي المجموعة » ( '..msg.chat_id_..' )*\n*✺│عدد الادمنيه » ( '..data.administrator_count_..' )*\n*✺│عدد المحظورين » ( '..data.kicked_count_..' )*\n*✺│عدد الاعضاء » ( '..data.member_count_..' )*\n', 'md') 
 end
 -----------
 if text ==("مسح") and Mod(msg) and tonumber(msg.reply_to_message_id_) > 0 then
