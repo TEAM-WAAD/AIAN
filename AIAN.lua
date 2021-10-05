@@ -8084,7 +8084,39 @@ keyboard.inline_keyboard = {{{text = ''..result.first_name_..' ',url="t.me/"..re
 https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/'..result.username_..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end,nil)
 end
-
+if text and (text == 'المنشئ' or text == 'منشئ') then
+tdcli_function({ID="GetUser",user_id_=SUDO},function(arg,result)
+local msg_id = msg.id_/2097152/0.5
+local getbio1 = getbio(SUDO)
+Text = "*᥀︙Dev Name ↬ * ["..result.first_name_.."](tg://user?id="..result.id_..")\n*᥀︙Dev User ↬* [@"..result.username_.."] \n*᥀︙Dev bio ↬* ["..getbio1.."]"
+keyboard = {} 
+keyboard.inline_keyboard = {{{text = ''..result.first_name_..' ',url="t.me/"..result.username_ or nnnnbn}}}
+https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/'..result.username_..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+end,nil)
+end
+if text ==("المنشئ") then
+tdcli_function ({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub("-100",""),filter_ = {ID = "ChannelMembersAdministrators"},offset_ = 0,limit_ = 100},function(arg,data) 
+local admins = data.members_
+for i=0 , #admins do
+if data.members_[i].status_.ID == "ChatMemberStatusCreator" then
+owner_id = admins[i].user_id_
+tdcli_function ({ID = "GetUser",user_id_ = owner_id},function(arg,b) 
+if b.first_name_ == false then
+send(msg.chat_id_, msg.id_," *✺│حساب المنشئ محذوف*")
+return false  
+end
+local UserName = (b.username_ or "nnnnBn")
+local msg_id = msg.id_/2097152/0.5
+local getbio1 = getbio(owner_id)
+Text = "*᥀︙Owner Name ↬ * ["..b.first_name_.."](T.me/"..UserName..")\n*᥀︙Owner User ↬* [@"..UserName.."] \n*᥀︙Owner bio ↬* ["..getbio1.."]"
+keyboard = {} 
+keyboard.inline_keyboard = {{{text = ''..b.first_name_..' ',url="t.me/"..UserName or nnnnbn}}}
+https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/'..UserName..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+end,nil)   
+end
+end
+end,nil)   
+end
 ------------------------------------------------------------------------ زلــزال الهيــبـه
 
 if text == "تفعيل صورتي" or text == 'تفعيل الصوره' then
@@ -12504,6 +12536,9 @@ end
 
 end -- end new msg
 end -- end callback
+
+
+
 
 
 
