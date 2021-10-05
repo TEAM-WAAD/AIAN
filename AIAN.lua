@@ -10672,8 +10672,14 @@ return false
 end
 
 if text and text:match("^(gpinfo)$") or text and text:match("^معلومات الكروب$") then
+function gpinfo(arg,data)
 -- vardump(data) 
 send(msg.chat_id_, msg.id_, ' *✺│ايدي المجموعة » ( '..msg.chat_id_..' )*\n*✺│عدد الادمنيه » ( '..data.administrator_count_..' )*\n*✺│عدد المحظورين » ( '..data.kicked_count_..' )*\n*✺│عدد الاعضاء » ( '..data.member_count_..' )*\n', 'md') 
+end 
+send(msg.chat_id_, gpinfo, nil) 
+end
+if text == "ايدي الكروب" then
+send(msg.chat_id_, msg.id_, ' *✺│ايدي المجموعة » ( '..msg.chat_id_..' )', 'md') 
 end
 -----------
 if text ==("مسح") and Mod(msg) and tonumber(msg.reply_to_message_id_) > 0 then
