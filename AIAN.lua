@@ -8074,17 +8074,6 @@ database:del(bot_id.."Link_Group:status"..msg.chat_id_)
 send(msg.chat_id_, msg.id_," *✺│تم تعطيل الرابط*") 
 return false end
 end
-if text == 'المطور' or text == 'مطور' then
-local TEXT_SUDO = database:get(bot_id..'TEXT_SUDO')
-if TEXT_SUDO then 
-send(msg.chat_id_, msg.id_,TEXT_SUDO)
-else
-tdcli_function ({ID = "GetUser",user_id_ = SUDO},function(arg,result) 
-local Name = '['..result.first_name_..'](tg://user?id='..result.id_..')'
-sendText(msg.chat_id_,Name,msg.id_/2097152/0.5,'md')
-end,nil)
-end
-end
 if text and (text == 'المطور' or text == 'مطور' or text == '↫  المطور ᥀') then
 tdcli_function({ID="GetUser",user_id_=SUDO},function(arg,result)
 local msg_id = msg.id_/2097152/0.5
