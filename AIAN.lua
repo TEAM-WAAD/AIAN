@@ -8086,7 +8086,7 @@ end,nil)
 end
 end
 ------------------------------------------------------------------------ زلــزال الهيــبـه
-+
+
 if text == "تفعيل صورتي" or text == 'تفعيل الصوره' then
 if Constructor(msg) then  
 database:set(bot_id.."my_photo:status"..msg.chat_id_,true) 
