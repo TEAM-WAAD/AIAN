@@ -247,15 +247,6 @@ var = data.result.bio
 end
 return var
 end
-function usergp(User)
-local var = "لايوجد"
-local url , res = https.request("https://api.telegram.org/bot"..token.."/getchat?chat_id="..User)
-data = json:decode(url)
-if data.result.photo.big_file_id then
-var = data.result.photo.big_file_id
-end
-return var
-end
 function AddChannel(User)
 local var = true
 if database:get(bot_id..'add:ch:id') then
@@ -8083,7 +8074,18 @@ database:del(bot_id.."Link_Group:status"..msg.chat_id_)
 send(msg.chat_id_, msg.id_," *✺│تم تعطيل الرابط*") 
 return false end
 end
------------------------------------------------------------------------ زلــزال الهيــبـه
+if text and (text == 'المطور' or text == 'مطور' or text == '↫  المطور ᥀') then
+tdcli_function({ID="GetUser",user_id_=SUDO},function(arg,result)
+local msg_id = msg.id_/2097152/0.5
+local getbio1 = getbio(SUDO)
+Text = "*᥀︙Dev Name ↬ * ["..result.first_name_.."](tg://user?id="..result.id_..")\n*᥀︙Dev User ↬* [@"..result.username_.."] \n*᥀︙Dev bio ↬* ["..getbio1.."]"
+keyboard = {} 
+keyboard.inline_keyboard = {{{text = ''..result.first_name_..' ',url="t.me/"..result.username_ or nnnnbn}}}
+https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/'..result.username_..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+end,nil)
+end
+
+------------------------------------------------------------------------ زلــزال الهيــبـه
 
 if text == "تفعيل صورتي" or text == 'تفعيل الصوره' then
 if Constructor(msg) then  
@@ -8098,16 +8100,6 @@ database:del(bot_id.."my_photo:status"..msg.chat_id_)
 send(msg.chat_id_, msg.id_," *✺│تم تعطيل الصوره*") 
 return false end
 end
-if text and (text == 'المطور' or text == 'مطور' or text == '↫  المطور ᥀') then
-tdcli_function({ID="GetUser",user_id_=SUDO},function(arg,result)
-local msg_id = msg.id_/2097152/0.5
-local getbio1 = getbio(SUDO)
-Text = "*᥀︙Dev Name ↬ * ["..result.first_name_.."](tg://user?id="..result.id_..")\n*᥀︙Dev User ↬* [@"..result.username_.."] \n*᥀︙Dev bio ↬* ["..getbio1.."]"
-keyboard = {} 
-keyboard.inline_keyboard = {{{text = ''..result.first_name_..' ',url="t.me/"..result.username_ or nnnnbn}}}
-https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/'..result.username_..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-end,nil)
-end
 if text == "الرابط" then 
 local status_Link = database:get(bot_id.."Link_Group:status"..msg.chat_id_)
 if not status_Link then
@@ -8116,12 +8108,7 @@ return false
 end
 local link = database:get(bot_id.."Private:Group:Link"..msg.chat_id_)
 if link then  
-Text = "𝒍𝒊𝒏𝒌 𝒈𝒓𝒐𝒖𝒑  𖠐\n*◐•━━━━━━ 𝗪𝗔 ━━━━━━━•◐*\n ["..link.."]"
-local photogp = usergp(msg.chat_id_)
-local msg_id = msg.id_/2097152/0.5
-keyboard = {} 
-keyboard.inline_keyboard = {{{text = 'ي ',url="t.me/nnnnbn"}}}
-https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo='..photogp..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+send(msg.chat_id_,msg.id_,'𝒍𝒊𝒏𝒌 𝒈𝒓𝒐𝒖𝒑  𖠐\n*◐•━━━━━━ 𝗪𝗔 ━━━━━━━•◐*\n ['..link..']')  
 else
 local linkgpp = json:decode(https.request('https://api.telegram.org/bot'..token..'/exportChatInviteLink?chat_id='..msg.chat_id_))
 if linkgpp.ok == true then 
