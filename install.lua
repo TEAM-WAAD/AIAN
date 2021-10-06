@@ -76,7 +76,7 @@ rm -fr ../.telegram-cli
 done
 ]])
 RunBot:close()
-local RunTs = io.open("Run", 'w')
+local RunTs = io.open("AIAN", 'w')
 RunTs:write([[
 #!/usr/bin/env bash
 cd $HOME/AIAN
